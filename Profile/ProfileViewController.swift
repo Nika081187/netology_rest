@@ -29,6 +29,10 @@ class ProfileViewController: UIViewController {
     private lazy var header = ProfileTableHederView()
     lazy var photos = ProfilePhotoStackView()
     
+    func setDelegate(delegate: LogInViewControllerDelegate) {
+        self.header.delegate = delegate
+    }
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         print(type(of: self), #function)

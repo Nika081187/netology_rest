@@ -19,18 +19,23 @@ protocol LogInViewControllerDelegate: class {
 class LogInViewController: UIViewController {
     private let basePadding: CGFloat = 16.0
     
-    var delegate: LogInViewControllerDelegate?
+    weak var delegate: LogInViewControllerDelegate?
+    
+    func setDelegate(delegate: LogInViewControllerDelegate) {
+        self.delegate = delegate
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let inspector = LoginInspector()
-        delegate = inspector
+
         delegate?.isLoggedIn { result in
             print("is logged in result \(result)")
+            
             if  result {
+                let vc = ProfileViewController()
+                vc.setDelegate(delegate: self.delegate!)
                 //TODO сделать открытие контроллера через координатор
-                self.navigationController?.pushViewController(ProfileViewController(), animated: false)
+                self.navigationController?.pushViewController(vc, animated: false)
             }
         }
         
@@ -217,8 +222,10 @@ class LogInViewController: UIViewController {
         delegate?.auth(login: myLogin, password: myPassword) { [self] result in
             print("auth result \(result)")
             if  result {
+                let vc = ProfileViewController()
+                vc.setDelegate(delegate: self.delegate!)
                 //TODO сделать открытие контроллера через координатор
-                self.navigationController?.pushViewController(ProfileViewController(), animated: false)
+                self.navigationController?.pushViewController(vc, animated: false)
             } else {
                 self.addErrorLabel(text: "auth is failed, try again")
             }

@@ -13,6 +13,7 @@ final class LoginCoordinator: Coordinator {
 
     private weak var navigationController: UINavigationController?
     private var profileCoordinator: ProfileCoordinator
+    private let inspector = LoginInspector()
     
     init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
@@ -21,6 +22,7 @@ final class LoginCoordinator: Coordinator {
     
     func start() {
         let vc = LogInViewController()
+        vc.setDelegate(delegate: inspector)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

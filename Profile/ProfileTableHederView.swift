@@ -83,17 +83,17 @@ class ProfileTableHederView: UIView {
         return statusButton
     }()
     
-    var delegate: LogInViewControllerDelegate?
+    weak var delegate: LogInViewControllerDelegate?
     
     @objc func signOutButtonPressed() {
         print("Sign out button pressed: \(statusTextField.text!)")
-        
-        let inspector = LoginInspector()
-        delegate = inspector
-        delegate?.signOut { result in
+
+        let vc = LogInViewController()
+        vc.setDelegate(delegate: delegate!)
+        delegate?.signOut { [self] result in
             print("sign out result \(result)")
             //TODO сделать открытие контроллера через координатор
-            self.findViewController()?.navigationController?.pushViewController(LogInViewController(), animated: false)
+            self.findViewController()?.navigationController?.pushViewController(vc, animated: false)
         }
     }
     
