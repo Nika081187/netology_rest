@@ -70,7 +70,7 @@ class ProfileTableHederView: UIView {
         let statusButton = UIButton()
         statusButton.toAutoLayout()
         statusButton.backgroundColor = .systemBlue
-        statusButton.setTitle("Show status", for: .normal)
+        statusButton.setTitle("Sign out", for: .normal)
         statusButton.setTitleColor(.white, for: .normal)
         statusButton.layer.cornerRadius = 15
         statusButton.layer.shadowOffset = CGSize(width: 4, height: 4)
@@ -78,13 +78,23 @@ class ProfileTableHederView: UIView {
         statusButton.layer.shadowOpacity = 0.7
         statusButton.layer.shadowRadius = 4
         statusButton.layer.masksToBounds = false
-        statusButton.addTarget(self, action: #selector(showStatusButtonPressed), for: .touchUpInside)
+        statusButton.addTarget(self, action: #selector(signOutButtonPressed), for: .touchUpInside)
         statusButton.isEnabled = true
         return statusButton
     }()
     
-    @objc func showStatusButtonPressed() {
-        print("Status button pressed: \(statusTextField.text!)")
+    weak var delegate: LogInViewControllerDelegate?
+    
+    @objc func signOutButtonPressed() {
+        print("Sign out button pressed: \(statusTextField.text!)")
+
+        let vc = LogInViewController()
+        vc.setDelegate(delegate: delegate!)
+        delegate?.signOut { [self] result in
+            print("sign out result \(result)")
+            //TODO сделать открытие контроллера через координатор
+            self.findViewController()?.navigationController?.pushViewController(vc, animated: false)
+        }
     }
     
     func setupLayout() {

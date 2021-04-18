@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -61,6 +61,12 @@
 		28CAD53B257B7AFF005F72DE /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CAD53A257B7AFF005F72DE /* PostTableViewCell.swift */; };
 		28CAD542257BC554005F72DE /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CAD541257BC554005F72DE /* Storage.swift */; };
 		28E5B7D0256168A0000FE56E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E5B7CF256168A0000FE56E /* ProfileViewController.swift */; };
+		28F12FE1262C36310034CE83 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28F12FE0262C36310034CE83 /* GoogleService-Info.plist */; };
+		28F12FE2262C36310034CE83 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28F12FE0262C36310034CE83 /* GoogleService-Info.plist */; };
+		28F12FF7262C44D20034CE83 /* CredentialsChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F12FF6262C44D20034CE83 /* CredentialsChecker.swift */; };
+		28F12FF8262C44D20034CE83 /* CredentialsChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F12FF6262C44D20034CE83 /* CredentialsChecker.swift */; };
+		28F12FFE262C45420034CE83 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F12FFD262C45420034CE83 /* Checker.swift */; };
+		28F12FFF262C45420034CE83 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F12FFD262C45420034CE83 /* Checker.swift */; };
 		4826F792E439C1F1063D60CD /* Pods_Navigation_copy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3D803AA7990C9BF0D0C722 /* Pods_Navigation_copy.framework */; };
 		F5CA0179DA6C647BC3EEB82D /* Pods_Navigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D33E26E099FC968F02FC0BF3 /* Pods_Navigation.framework */; };
 /* End PBXBuildFile section */
@@ -97,6 +103,9 @@
 		28CAD53A257B7AFF005F72DE /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		28CAD541257BC554005F72DE /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		28E5B7CF256168A0000FE56E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		28F12FE0262C36310034CE83 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		28F12FF6262C44D20034CE83 /* CredentialsChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsChecker.swift; sourceTree = "<group>"; };
+		28F12FFD262C45420034CE83 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		3AB9082627B19D7782A7315B /* Pods-Navigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation.debug.xcconfig"; path = "Target Support Files/Pods-Navigation/Pods-Navigation.debug.xcconfig"; sourceTree = "<group>"; };
 		3F3D803AA7990C9BF0D0C722 /* Pods_Navigation_copy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation_copy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D33DA9F57F365DA4AAB6EE /* Pods-Navigation copy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation copy.release.xcconfig"; path = "Target Support Files/Pods-Navigation copy/Pods-Navigation copy.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +137,7 @@
 		060782A5250CE27700A87020 = {
 			isa = PBXGroup;
 			children = (
+				28F12FE0262C36310034CE83 /* GoogleService-Info.plist */,
 				28E5B7CB25616863000FE56E /* Profile */,
 				060782B0250CE27700A87020 /* Navigation */,
 				060782AF250CE27700A87020 /* Products */,
@@ -174,7 +184,6 @@
 				9BD1F149E50E78CCC3C1707D /* Pods-Navigation copy.debug.xcconfig */,
 				52D33DA9F57F365DA4AAB6EE /* Pods-Navigation copy.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -182,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				288D6C37257292FF0039E5EF /* TopHeaderView.swift */,
+				28F12FF6262C44D20034CE83 /* CredentialsChecker.swift */,
 				28E5B7CF256168A0000FE56E /* ProfileViewController.swift */,
 				28CAD541257BC554005F72DE /* Storage.swift */,
 				28810A742586510200F9E84E /* PhotoStorage.swift */,
@@ -191,6 +201,7 @@
 				280B8E6425D805DC00A798FD /* LoginCoordinator.swift */,
 				281F130E258A15940035822E /* PhotosCollectionViewCell.swift */,
 				288D6C3A257299720039E5EF /* LogInViewController.swift */,
+				28F12FFD262C45420034CE83 /* Checker.swift */,
 				280B8E8125D8421B00A798FD /* PhotosCoordinator.swift */,
 				28CAD533257B77BC005F72DE /* Post.swift */,
 				28CAD537257B7AB1005F72DE /* ProfileTableHederView.swift */,
@@ -290,6 +301,7 @@
 			files = (
 				060782BE250CE27A00A87020 /* LaunchScreen.storyboard in Resources */,
 				060782BB250CE27A00A87020 /* Assets.xcassets in Resources */,
+				28F12FE1262C36310034CE83 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +311,7 @@
 			files = (
 				284AE30625B0C49E00027E09 /* LaunchScreen.storyboard in Resources */,
 				284AE30725B0C49E00027E09 /* Assets.xcassets in Resources */,
+				28F12FE2262C36310034CE83 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +402,8 @@
 				280B8E6F25D8378900A798FD /* FeedCoordinator.swift in Sources */,
 				28810A752586510200F9E84E /* PhotoStorage.swift in Sources */,
 				280B8E5B25D801F200A798FD /* ProfileCoordinator.swift in Sources */,
+				28F12FFE262C45420034CE83 /* Checker.swift in Sources */,
+				28F12FF7262C44D20034CE83 /* CredentialsChecker.swift in Sources */,
 				28E5B7D0256168A0000FE56E /* ProfileViewController.swift in Sources */,
 				28810A782586708800F9E84E /* PhotosViewController.swift in Sources */,
 				28810A7225864FBB00F9E84E /* ProfilePhotoStackView.swift in Sources */,
@@ -421,6 +436,8 @@
 				280B8E7025D8378900A798FD /* FeedCoordinator.swift in Sources */,
 				284AE2F925B0C49E00027E09 /* PhotoStorage.swift in Sources */,
 				280B8E5C25D801F200A798FD /* ProfileCoordinator.swift in Sources */,
+				28F12FFF262C45420034CE83 /* Checker.swift in Sources */,
+				28F12FF8262C44D20034CE83 /* CredentialsChecker.swift in Sources */,
 				284AE2FA25B0C49E00027E09 /* ProfileViewController.swift in Sources */,
 				284AE2FB25B0C49E00027E09 /* PhotosViewController.swift in Sources */,
 				284AE2FC25B0C49E00027E09 /* ProfilePhotoStackView.swift in Sources */,

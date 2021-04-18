@@ -13,6 +13,7 @@ final class ProfileCoordinator: Coordinator {
 
     private weak var navigationController: UINavigationController?
     private var photosCoordinator: PhotosCoordinator
+    private let inspector = LoginInspector()
     
     init(navigationController: UINavigationController?){
         self.navigationController = navigationController
@@ -21,6 +22,7 @@ final class ProfileCoordinator: Coordinator {
     
     func start() {
         let vc = ProfileViewController()
+        vc.setDelegate(delegate: inspector)
         vc.photos.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }

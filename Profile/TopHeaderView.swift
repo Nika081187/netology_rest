@@ -42,7 +42,7 @@ class TopHeaderView: UIView {
     @IBOutlet var statusButton: UIButton! {
         didSet {
             statusButton.backgroundColor = .systemBlue
-            statusButton.setTitle("Show status", for: .normal)
+            statusButton.setTitle("Sign out", for: .normal)
             statusButton.setTitleColor(.white, for: .normal)
             statusButton.layer.cornerRadius = 15
             statusButton.layer.shadowOffset = CGSize(width: 4, height: 4)
