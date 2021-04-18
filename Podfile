@@ -16,4 +16,5 @@ target 'Navigation copy' do
   # Pods for Navigation copy
   pod 'SnapKit', '~> 5.0.0'
   pod 'Firebase/Auth'
+  pod 'Firebase/Core'
 end

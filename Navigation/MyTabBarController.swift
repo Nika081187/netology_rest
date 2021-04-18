@@ -54,7 +54,7 @@ class MyTabBarController: UIViewController, UITabBarDelegate {
             updateLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
         
-        view.backgroundColor = .systemGray5
+        view.backgroundColor = .white
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -76,10 +76,6 @@ class MyTabBarController: UIViewController, UITabBarDelegate {
     }
     
     func updateUI() {
-      guard updateLabel != nil  else {
-        return
-      }
-      
       if let time = time {
         updateLabel.text = dateFormatter.string(from: time)
       } else {

@@ -21,14 +21,6 @@ final class LoginCoordinator: Coordinator {
     
     func start() {
         let vc = LogInViewController()
-        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
-    }
-}
-
-@available(iOS 13.0, *)
-extension LoginCoordinator: LogInViewControllerDelegate {
-    func onLogInPressed() {
-        profileCoordinator.start()
     }
 }

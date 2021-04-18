@@ -7,19 +7,33 @@
 //
 
 import UIKit
+import Firebase
 
 protocol LogInViewControllerDelegate: class {
-  func onLogInPressed()
+    func auth(login: String, password: String, completion: @escaping (Bool) -> Void)
+    func isLoggedIn(completion: @escaping (Bool) -> Void)
+    func signOut(completion: @escaping (Bool) -> Void)
 }
 
 @available(iOS 13.0, *)
 class LogInViewController: UIViewController {
     private let basePadding: CGFloat = 16.0
     
-    weak var delegate: LogInViewControllerDelegate?
+    var delegate: LogInViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let inspector = LoginInspector()
+        delegate = inspector
+        delegate?.isLoggedIn { result in
+            print("is logged in result \(result)")
+            if  result {
+                //TODO сделать открытие контроллера через координатор
+                self.navigationController?.pushViewController(ProfileViewController(), animated: false)
+            }
+        }
+        
         title = "Profile"
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -178,9 +192,45 @@ class LogInViewController: UIViewController {
         return logInButton
     }()
     
+    private lazy var authFailedLabel: UILabel = {
+        let label = UILabel()
+        label.toAutoLayout()
+        label.textColor = .red
+        label.font = UIFont.systemFont(ofSize: 18.0)
+        return label
+    }()
+    
     @objc func logInButtonPressed() {
         print("Log in button pressed")
-        delegate?.onLogInPressed()
+        let password = passwordTextField.text
+        let login = loginTextField.text
+        guard let myLogin = login, let myPassword = password, !myLogin.isEmpty, !myPassword.isEmpty else {
+            self.addErrorLabel(text: "enter login and password")
+            if let myLogin = login, myLogin.isEmpty {
+                loginTextField.layer.borderColor = UIColor.red.cgColor
+            }
+            if let myPassword = password, myPassword.isEmpty {
+                passwordTextField.layer.borderColor = UIColor.red.cgColor
+            }
+            return
+        }
+        delegate?.auth(login: myLogin, password: myPassword) { [self] result in
+            print("auth result \(result)")
+            if  result {
+                //TODO сделать открытие контроллера через координатор
+                self.navigationController?.pushViewController(ProfileViewController(), animated: false)
+            } else {
+                self.addErrorLabel(text: "auth is failed, try again")
+            }
+        }
+    }
+    
+    func addErrorLabel(text: String) {
+        authFailedLabel.text = text
+        contentView.addSubview(authFailedLabel)
+        NSLayoutConstraint.activate([
+            authFailedLabel.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 30),
+            authFailedLabel.centerXAnchor.constraint(equalTo: logInButton.centerXAnchor)])
     }
 }
 
